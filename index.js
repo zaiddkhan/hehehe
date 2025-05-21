@@ -38,17 +38,6 @@ const docCache = new LRUCache({
   max: 1000,
   ttl: 1000 * 60 * 60, // 1 hour
 });
-
-// Get or create Bedrock client
-function getBedrockClient() {
-  if (!_bedrockClient) {
-    _bedrockClient = new AWS.BedrockRuntime({
-      region: AWS_REGION
-    });
-  }
-  return _bedrockClient;
-}
-
 // MongoDB connection
 let dbClient = null;
 async function connectDB() {
